@@ -2,8 +2,14 @@ const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb+srv://mayhaali:SsLi5KuHuTDNaWK6@cluster0.j8ysx6r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const express = require('express');
 const app = express();
+const path = require('path');
 
 var port = process.env.PORT || 3000;
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'form.html'));
+});
 
 app.get('/process', async(req, res) => {
     const query = req.query.query;
