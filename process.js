@@ -24,16 +24,16 @@ app.get('/process', async(req, res) => {
 
     const results = await collection.find({ [type]: query }).toArray();
 
-    results.forEach(c => {
-        console.log(`Name: ${c.company}, Ticker: ${c.ticker}, Price: $${c.price}`);
-    });
-
     let html = '<h2>Search Results</h2>';
     results.forEach(c => {
         html += `${c.company}, ${c.ticker}, $${c.price}`;
     });
 
     res.send(html);
+
+    results.forEach(c => {
+        console.log(`Name: ${c.company}, Ticker: ${c.ticker}, Price: $${c.price}`);
+    });
 });
 
 app.listen(port);
