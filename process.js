@@ -5,10 +5,9 @@ const app = express();
 const path = require('path');
 
 var port = process.env.PORT || 3000;
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'form.html'));
+    res.sendFile(path.join(__dirname, 'form.html'));
 });
 
 app.get('/process', async(req, res) => {
