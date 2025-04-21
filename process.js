@@ -30,7 +30,7 @@ app.get('/process', async(req, res) => {
 
     let html = '<h2>Search Results</h2>';
     results.forEach(c => {
-        html += `${c.name}, ${c.ticker}, $${c.price}`;
+        html += `${c.company}, ${c.ticker}, $${c.price}`;
     });
 
     res.send(html);
