@@ -27,13 +27,10 @@ app.get('/process', async(req, res) => {
     let html = '<h2>Search Results</h2>';
     results.forEach(c => {
         html += `${c.company}, ${c.ticker}, $${c.price}`;
+        console.log(`Name: ${c.company}, Ticker: ${c.ticker}, Price: $${c.price}`);
     });
 
     res.send(html);
-
-    results.forEach(c => {
-        console.log(`Name: ${c.company}, Ticker: ${c.ticker}, Price: $${c.price}`);
-    });
 });
 
 app.listen(port);
