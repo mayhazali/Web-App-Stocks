@@ -26,7 +26,7 @@ app.get('/process', async(req, res) => {
 
     let html = '<h2>Search Results</h2>';
     results.forEach(c => {
-        html += `${c.company}, ${c.ticker}, $${c.price}`;
+        html += `${c.company}, ${c.ticker}, $${c.price}<br>`;
         console.log(`Name: ${c.company}, Ticker: ${c.ticker}, Price: $${c.price}`);
     });
 
